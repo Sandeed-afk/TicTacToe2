@@ -7,6 +7,7 @@ export default class GameView {
                 <div class="header__status"></div>
                 <button type="button" class="header__restart">
                     <i class="material-icons">refresh</i>
+                    </button>
             </div>
             <div class="board">
                 <div class="board__tile" data-index="0"></div>
