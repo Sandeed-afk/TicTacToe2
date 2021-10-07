@@ -1,5 +1,8 @@
 export default class GameView {
     constructor(root) {
+        this.x = 0;
+        this.y = 0;
+        this.score = 0;
         this.root = root;
         this.root.innerHTML = `
             <div class="header">
@@ -8,6 +11,14 @@ export default class GameView {
                 <button type="button" class="header__restart">
                     <i class="material-icons">refresh</i>
                     </button>
+                <button type="button" class="header__single">
+                    Single&nbsp;Player
+                    </button>
+                <button type="button" class="header__multi">
+                    Multiplayer
+                    </button>
+                <div class="header__Xwins">X:</div>
+                <div class="header__Owins">O:</div>
             </div>
             <div class="board">
                 <div class="board__tile" data-index="0"></div>
@@ -36,26 +47,55 @@ export default class GameView {
         this.root.querySelector(".header__restart").addEventListener("click", () => {
             if (this.onRestartClick) {
                 this.onRestartClick();
+                this.score = 0;
             }
         });
+
+        this.root.querySelector(".header__multi").addEventListener("click", () => {
+            if (this.onRestartClick) {
+                this.x = 0;
+                this.y = 0;
+                this.root.querySelector(".header__Xwins").textContent = `X:`;
+                this.root.querySelector(".header__Owins").textContent = `O:`;
+
+                this.onRestartClick();
+                this.score = 0;
+            }
+        });
+
+
     }
 
     update(game) {
         this.updateTurn(game);
         this.updateStatus(game);
         this.updateBoard(game);
+
     }
 
     updateTurn(game) {
-        this.root.querySelector(".header__turn").textContent = `${game.turn}'s turnn`;
+        this.root.querySelector(".header__turn").textContent = `${game.turn}'s turn`;
     }
-
+    
+   
     updateStatus(game) {
+        
         let status = "In Progress";
+         
+        
 
-        if (game.findWinningCombination()) {
+        if (game.findWinningCombination() && this.score === 0) {
             status = `${game.turn} is the Winner!`;
-        } else if (!game.isInProgress()) {
+            if (game.turn === "X") {
+                this.score = this.score + 1;
+                this.x = this.x + 1;
+                this.root.querySelector(".header__Xwins").textContent = `X:${this.x}`;
+            } else {
+                this.score = this.score + 1;
+                this.y = this.y + 1;
+                this.root.querySelector(".header__Owins").textContent = `O:${this.y}`;
+            }
+        } else if (!game.isInProgress() && this.score === 0) {
             status = "It's a tie!";
         }
 

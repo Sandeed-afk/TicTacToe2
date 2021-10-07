@@ -43,13 +43,15 @@
     padding: 12px;
     flex-grow: 1;
     text-align: center;
-    position:  relative; right:22px;
+    position:  absolute; left:190px;
 }
 
 .header__restart {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: larger;
+    position: absolute; left:450px;
     border: none;
     outline: none;
     background: none;
@@ -57,19 +59,49 @@
     cursor: pointer;
 }
 
-/* .header__single {
+.header__single {
     display: flex;
     align-items: center;
-    position: relative; left:150px;
-    font-size: larger;
     justify-content: center;
+    position: absolute; left:550px; top:10px;
+    font-size: 35px;
+    font-family: sans-serif; 
     border: none;
     outline: none;
     background: none;
     background-color: black;
     cursor: pointer;
-} */
+}
 
+.header__multi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; left:550px; top:75px;
+    font-size: 35px;
+    font-family: sans-serif; 
+    border: none;
+    outline: none;
+    background: none;
+    background-color: black;
+    cursor: pointer;
+}
+
+.header__Xwins {
+    padding: 12px;
+    flex-grow: 1;
+    font-size: large;
+    text-align: center;
+    position:  absolute; left:550px; top:200px;
+}
+
+.header__Owins {
+    padding: 12px;
+    flex-grow: 1;
+    font-size: large;
+    text-align: center;
+    position:  absolute; left:550px; top:275px;
+}
 .board {
     display: grid; 
     background: black;

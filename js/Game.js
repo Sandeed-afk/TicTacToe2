@@ -8,6 +8,14 @@ export default class Game{
         this.turn = this.turn === "X" ? "O" : "X";
     }
 
+    Xwin() {
+        this.x = this.x + 1;
+    }
+
+    Ywin() {
+        this.y = this.y + 1;
+    }
+
     makeMove(i) {
         if(!this.isInProgress()) {
             return;
