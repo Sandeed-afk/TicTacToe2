@@ -11,12 +11,6 @@ export default class GameView {
                 <button type="button" class="header__restart">
                     <i class="material-icons">refresh</i>
                     </button>
-                <button type="button" class="header__single">
-                    Single&nbsp;Player
-                    </button>
-                <button type="button" class="header__multi">
-                    Multiplayer
-                    </button>
                 <div class="header__Xwins">X:</div>
                 <div class="header__Owins">O:</div>
             </div>
@@ -51,17 +45,17 @@ export default class GameView {
             }
         });
 
-        this.root.querySelector(".header__multi").addEventListener("click", () => {
-            if (this.onRestartClick) {
-                this.x = 0;
-                this.y = 0;
-                this.root.querySelector(".header__Xwins").textContent = `X:`;
-                this.root.querySelector(".header__Owins").textContent = `O:`;
+        // this.root.querySelector(".header__multi").addEventListener("click", () => {
+        //     if (this.onRestartClick) {
+        //         this.x = 0;
+        //         this.y = 0;
+        //         this.root.querySelector(".header__Xwins").textContent = `X:`;
+        //         this.root.querySelector(".header__Owins").textContent = `O:`;
 
-                this.onRestartClick();
-                this.score = 0;
-            }
-        });
+        //         this.onRestartClick();
+        //         this.score = 0;
+        //     }
+        // });
 
 
     }
